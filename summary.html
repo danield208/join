@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join</title>
+  <link rel="shortcut icon" href="img/icon_blue.png" type="image/x-icon" />
+
+  <!-- import CSS -->
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" media="(max-width:1100px)" href="style_tablet.css" />
+  <link rel="stylesheet" media="(max-width:700px)" href="style_mobile.css" />
+</head>
+
+<body item="Summary">
+  <header id="active" include-html="Temp/header.html" class="header-summary"></header>
+
+  <main class="full-height-width main-summary">
+    <nav class="shadow-black nav-summary" include-html="Temp/navbar.html"></nav>
+    <section class="content dflex-center section-summary">
+      <div class="first-line dflex-center">
+        <span>Placeholder</span>
+        <span>Placeholder</span>
+      </div>
+      <div class="second-line dflex-center">
+        <div class="shadow-black" id="urgentTask-container" onclick="openboard()">
+          <div>
+            <div class="icons dflex-center">
+              <img src="img/Urgent.png" />
+              <span id="urgentTasks">P</span>
+            </div>
+            <span class="taskdescription">Tasks Urgent</span>
+          </div>
+
+          <div class="timestamp-container">
+            <span id="upcomingDeadline">Placeholder</span>
+            <span class="taskdescription">Upcoming Deadline</span>
+          </div>
+        </div>
+        <div class="ToDo-Container dflex-center shadow-black" onclick="openboard()">
+          <div class="dflex-center">
+            <img src="img/Board.png" />
+            <span id="toDoTasks">P</span>
+          </div>
+          <span>Tasks To-do</span>
+        </div>
+      </div>
+
+      <div class="third-line dflex-center">
+        <div class="card" onclick="openboard()">
+          <div class="cardhead">
+            <img src="img/Board.png" />
+            <span id="AllTask">P</span>
+          </div>
+          <span>Task in Board</span>
+        </div>
+        <div class="card" onclick="openboard()">
+          <div class="cardhead">
+            <img src="img/In Progress.png" />
+            <span id="inProgress">P</span>
+          </div>
+          <span>Task in Progress</span>
+        </div>
+        <div class="card" onclick="openboard()">
+          <div class="cardhead">
+            <img src="img/Awaiting feedback.png" />
+            <span id="awaitForFeedback">P</span>
+          </div>
+          <span>Awaiting Feedback</span>
+        </div>
+        <div class="card" onclick="openboard()">
+          <div class="cardhead">
+            <img src="img/Done.png" />
+            <span id="done">P</span>
+          </div>
+          <span>Tasks Done</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- import JS -->
+  <script src="js/mini_backend.js"></script>
+  <script src="js/loadTemplates.js"></script>
+  <script src="classes/loadProperties.class.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

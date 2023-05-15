@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join</title>
+  <link rel="shortcut icon" href="img/icon_blue.png" type="image/x-icon">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" media="(max-width:990px)" href="style_tablet.css">
+  <link rel="stylesheet" media="(max-width:650px)" href="style_mobile.css">
+
+  <!-- ANCHOR Templates -->
+  <template id="subtask-temp">
+    <div on>
+      <input type="checkbox">
+      <span>Subtasktitel</span>
+    </div>
+  </template>
+  <template id="category-temp">
+    <div id=""></div>
+  </template>
+</head>
+
+<body item="AddTask">
+  <header id="active" class="header-task" include-html="Temp/header.html"></header>
+
+  <main class="full-height-width main-task">
+    <nav class="shadow-black " include-html="Temp/navbar.html"></nav>
+    <section class="content-task full-height-width dflex-center section-task">
+      <form class="full-height-width" id="TaskForm">
+        <div class="left-Container full-height-width left-Container-task blueScrollbar">
+          <input type="text" class="input-title outline-border-none" placeholder="Enter a title"
+            onclick="checkInput('input-title')" required />
+
+
+
+          <div class="dropdown">
+            <input type="text" class="contactInput  bottom-border textBox outline-border-none" id="0"
+              placeholder="Select contacts to assign" readonly required />
+
+            <div class=" d-none searchContact-Container ">
+              <div class="searchContact-input bottom-border">
+                <input class="outline-border-none" type="search" name="" id="searchContacts"
+                  placeholder="Enter Name or Email" />
+                <img id="closeSearchContact" src="img/cross_icon_blue.png">
+                <span>|</span>
+                <img id="addContactBtn" src="img/checked_blue.png">
+              </div>
+              <div class="outputContact">
+              </div>
+            </div>
+            <div class="selectedContacts"></div>
+
+            <div class="list contacts shadow-black">
+              <div id="0">
+                <span>Maria Weber</span>
+                <input type="checkbox" />
+                <p></p>
+
+              </div>
+              <div id="1">
+                <span>Daniel Tofel</span>
+                <input type="checkbox" />
+                <p></p>
+              </div>
+              <div id="2">
+                <span>Martin Dörbaum</span>
+                <input type="checkbox" />
+                <p></p>
+              </div>
+              <div id="3">
+                <span>invite Contact</span>
+                <img src="img/invite-Contact.png" alt="">
+              </div>
+
+            </div>
+          </div>
+
+          <div id="date-input-container">
+            <h3>Due date</h3>
+            <input class="outline-border-none date-input border-bottom" id="date-input" type="date" required
+              onclick="checkInput('date-input')" />
+          </div>
+
+          <div>
+            <h3>Category</h3>
+            <div class="d-none searchAndAdd-container">
+              <div class="searchAndAdd-container-input">
+                <input type="text" class=" outline-border-none" placeholder="Enter new Category">
+
+                <img id="closeSearchAndAddBtn" src="img/cross_icon_blue.png">
+                <span>|</span>
+                <img id="SearchAndAddBtn" src="img/checked_blue.png">
+              </div>
+              <div class="colorpicker"></div>
+            </div>
+
+            <div class="bottom-border dropdown cat">
+              <input type="text" class="textBox cagetorgy-input outline-border-none" placeholder="Select task Category"
+                id="1" readonly />
+              <div class="list category shadow-black">
+              </div>
+            </div>
+          </div>
+
+          <div class="priority-container">
+            <div class="priority dflex-center" id="0">
+              <span id="0">Urgent</span>
+              <img src="img/urgent_icon.png" />
+            </div>
+
+            <div class="priority dflex-center" id="1">
+              <span id="1">Medium</span>
+              <img src="img/medium_icon.png" />
+            </div>
+
+            <div class="priority dflex-center" id="2">
+              <span id="2">Low</span>
+              <img src="img/low_icon.png" />
+            </div>
+          </div>
+          <div>
+            <h3>Description</h3>
+            <textarea name="" class="description-input" id="description-input" required
+              placeholder="Enter a Description"></textarea>
+          </div>
+          <div>
+            <h3>Subtasks</h3>
+            <div class="subtask-container">
+              <input class="outline-border-none" id="subtask-input" type="text" placeholder="Add new subtask" />
+              <img class="" src="img/plus_Icon.png" alt="">
+              <div class=" d-none subtask-img-container">
+                <img id="subtaskClearBtn" src="img/cross_icon_blue.png" alt="">
+                <span>|</span>
+                <img id="subtaskAddBtn" src="img/checked_blue.png" alt="">
+              </div>
+            </div>
+            <div class="subtasks"></div>
+          </div>
+        </div>
+
+
+      </form>
+      <div class="right-Container full-height-width right-Container-task right-Container-task-class2">
+
+        <div class="task-button-box">
+          <button class="shadow-black" id="clear-btn">Clear<img src="img/cross_icon.png" /></button>
+          <button type="submit" form="TaskForm" class="AddButton shadow-black ">
+            Create Task<img src="img/checked_icon_white.png" />
+          </button>
+        </div>
+      </div>
+    </section>
+    <div class="task-note dflex-center d-none">
+      <div>
+        <span>new Task added successfully</span>
+      </div>
+    </div>
+
+  </main>
+  <script src="js/mini_backend.js"></script>
+  <script src="js/loadTemplates.js"></script>
+  <script src="classes/dynamicObj.class.js"></script>
+  <script src="classes/subtask.class.js"></script>
+  <script src="classes/newCategory.class.js"></script>
+  <script src="classes/task.class.js"></script>
+  <script src="js/script.js"></script>
+
+
+</body>
+
+</html>

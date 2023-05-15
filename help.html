@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join</title>
+  <link rel="shortcut icon" href="img/icon_blue.png" type="image/x-icon">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" media="(max-width:1000px)" href="style_mobile.css">
+
+</head>
+
+<body>
+  <header id="active" include-html="Temp/header.html"></header>
+  <main class="full-height-width main-task">
+    <nav class="shadow-black " include-html="Temp/navbar.html"></nav>
+    <section class="content-task full-height-width help-section">
+      <div class="help-head-container">
+        <h1>Help</h1>
+        <a href="summary.html"><img src="img/back_arrow_kingsblue.png" alt=""></a>
+      </div>
+
+      <div class="help-quest-container">
+        <h3>What is Join?</h3>
+        <span>
+          A kanban board is an agile project management tool designed to help visualize work, limit work-in-progress,
+          and maximize efficiency (or flow). It can help both agile and DevOps teams establish order in their daily
+          work. Kanban boards use cards, columns, and continuous improvement to help technology and service teams commit
+          to the right amount of work, and get it done!
+        </span>
+      </div>
+      <div class="how-it-use-container">
+        <h2 class="m-b-35">How to use it</h2>
+        <div class="steps">
+          <h3>Summary</h3>
+          <span>
+            Here you can find an overview of the amount of tasks and their current statuses.
+          </span>
+        </div>
+
+        <div class="steps">
+          <h3>Board</h3>
+          <span>
+            On the board you will find all created tasks which are separated in four sections of "To Do", "In progress",
+            "Awaiting feedback" and "Done".
+
+            Via drag and drop method you can change the status of the selected task.
+            To see an overview of the details of a task, just click on it and take changes if neccasary.
+            You can also search for a specific task title or its description.
+          </span>
+        </div>
+        <div class="steps">
+          <h3>Add Task</h3>
+          <span class="addTask-span">
+            Here you can create a new task with following parameters:
+          </span>
+
+          <ol>
+            <li><span>Title: </span><span>Title of the task</span></li>
+            <li><span>Description: </span><span>Description of the task in detail</span></li>
+            <li><span>Category: </span><span>Choose or add a new category of department</span></li>
+            <li><span>Assigned to: </span><span>Choose the members to assign to</span></li>
+            <li><span>Due date: </span><span>Set due date for the task</span></li>
+            <li><span>Prioriy: </span><span>Choose kind of priority of urgency</span></li>
+            <li><span>Subtasks: </span><span>Add subtasks to break the task down in multiple stages</span></li>
+          </ol>
+        </div>
+        <div class="steps">
+          <h3>Contacts</h3>
+          <span>
+            Here you will find all listed contacts. Detail informations are provided for each contact on the side. You
+            are able to edit these or just create a task.
+          </span>
+        </div>
+      </div>
+
+
+    </section>
+  </main>
+  <script src="js/mini_backend.js"></script>
+  <script src="js/loadTemplates.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

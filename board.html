@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join</title>
+  <link rel="shortcut icon" href="img/icon_blue.png" type="image/x-icon" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" media="(max-width:1400px)" href="style_tablet.css" />
+  <link rel="stylesheet" media="(max-width:1240px)" href="style_mobile.css" />
+
+  <!-- ANCHOR Templates -->
+  <template id="task_card">
+    <div class="bord-tasks-container-task shadow-black">
+      <div class="bord-task-cat dflex-center">
+        <span></span>
+      </div>
+      <h4 class="task-title-text-board"></h4>
+      <span class="bord-task-desc task-info-description-board"></span>
+      <div id="progressBar-subtasks">
+        <div class="progressBar">
+          <div class="progressBar-empty"></div>
+          <div id="progressBar-done"></div>
+        </div>
+        <div class="progressBar-subtasks-text">
+          <span id="subTasks-done">#</span>
+          <span> / </span>
+          <span id="subTasks-inProgress"> #</span>
+        </div>
+      </div>
+      <div class="bord-task-editor">
+        <div class="editor-list">
+
+        </div>
+
+        <img src="img/low_icon.png" />
+      </div>
+    </div>
+  </template>
+  <!-- Detailview Templates -->
+
+  <template class="detail-editor-temp">
+    <div class="board-task-editor">
+      <div class="board-task-editor-name">
+        <span class="dflex-center">SM</span>
+        <span class="detail-editor-name">Name</span>
+      </div>
+      <img src="">
+    </div>
+    <img src="">
+  </template>
+
+  <template class="detail-subtask-temp">
+    <div>
+      <span></span>
+      <input type="checkbox">
+    </div>
+  </template>
+
+  <!-- mobile template = change task status -->
+  <template id="changeTaskStatus_template">
+    <div id="changeTaskStatus">
+      <button class="button_changeTaskStatus">toDo</button>
+      <button class="button_changeTaskStatus">inProgress</button>
+      <button class="button_changeTaskStatus">Await</button>
+      <button class="button_changeTaskStatus">Done</button>
+      <img id="closeStatusWindow" src="./img/cross_icon_white.png">
+    </div>
+  </template>
+</head>
+
+<body item="Board">
+  <header id="active" include-html="Temp/header.html"></header>
+  <main class="">
+    <nav class="shadow-black" include-html="Temp/navbar.html"></nav>
+
+    <section class="section-board">
+      <div class="bord-search-container">
+        <input id="inputFindTask" type="text" placeholder="Search for title:" />
+        <span id="addTask_button" class="dflex-center">Add task +</span>
+      </div>
+      <div class="bord-tasks blueScrollbar">
+        <div class="bord-tasks-container">
+          <div class="bord-tasks-container-head">
+            <span>To do</span>
+            <a href="task.html"><img src="img/plus_Icon.png" /></a>
+          </div>
+          <div class="bord-tasks-container-location blueScrollbar" id="toDo" ondragover="allowDrop(event)"
+            ondrop="drop('toDo')">
+          </div>
+        </div>
+        <div class="bord-tasks-container">
+          <div class="bord-tasks-container-head">
+            <span>In progress</span>
+            <a href="task.html"><img src="img/plus_Icon.png" /></a>
+          </div>
+          <div class="bord-tasks-container-location blueScrollbar" id="inProgress" ondragover="allowDrop(event)"
+            ondrop="drop('inProgress')">
+          </div>
+        </div>
+        <div class="bord-tasks-container">
+          <div class="bord-tasks-container-head">
+            <span>Await feedback</span>
+            <a href="task.html"><img src="img/plus_Icon.png" /></a>
+          </div>
+          <div class="bord-tasks-container-location blueScrollbar" id="Await" ondragover="allowDrop(event)"
+            ondrop="drop('Await')">
+          </div>
+        </div>
+        <div class="bord-tasks-container">
+          <div class="bord-tasks-container-head">
+            <span>Done</span>
+            <a href="task.html"><img src="img/plus_Icon.png" /></a>
+          </div>
+          <div class="bord-tasks-container-location blueScrollbar" id="Done" ondragover="allowDrop(event)"
+            ondrop="drop('Done')">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="board-task-detail shadow-black dflex-center d-none">
+      <div class="board-task-detail-container">
+        <div class="board-task-detail-head">
+          <span>A-Team</span>
+          <img src="img/icon_close_dark.png" />
+        </div>
+        <div class="board-task-detail-body blueScrollbar">
+          <div class="board-task-detail-body-firstRow">
+            <input type="text" readonly="true" class=" outline-border-none"></input>
+            <textarea class=" outline-border-none" readonly="true"></textarea>
+          </div>
+
+          <div class="board-task-detail-rows board-task-detail-date">
+            <h3>Due date:</h3>
+            <input id="date-input" readonly="true" class="font-size1 outline-border-none"></input>
+          </div>
+          <div class="board-task-detail-rows board-detail-prio">
+            <h3>Priority: </h3>
+            <span class="font-size1"> Urgent/M/L <img src="img/urgent_icon.png" /></span>
+            <div class=" d-none priority-container">
+              <div class="priority dflex-center" id="Btn0">
+                <span id="0">Urgent</span>
+                <img src="img/urgent_icon.png" />
+              </div>
+
+              <div class="priority dflex-center" id="Btn1">
+                <span id="1">Medium</span>
+                <img src="img/medium_icon.png" />
+              </div>
+
+              <div class="priority dflex-center" id="Btn2">
+                <span id="2">Low</span>
+                <img src="img/low_icon.png" />
+              </div>
+            </div>
+          </div>
+          <div class="board-task-detail-subtasks">
+            <div class="board-task-detail-subtasks-head">
+              <h3>Subtasks to do:</h3>
+              <div class=" d-none subtask-container">
+                <input class="outline-border-none" id="subtask-input" type="text" placeholder="Add new subtask" />
+
+                <div class=" subtask-img-container">
+                  <img id="subtaskClearBtn" src="img/cross_icon_blue.png">
+                  <span>|</span>
+                  <img id="subtaskAddBtn" src="img/checked_blue.png">
+                </div>
+              </div>
+            </div>
+
+            <div class="subtask-list"></div>
+          </div>
+          <div class="board-task-detail-person">
+            <div class="board-task-detail-person-head">
+              <h3 class="">Assignet to:</h3>
+              <div class=" d-none searchContact-Container ">
+                <div class="searchContact-input bottom-border">
+                  <input class="outline-border-none" type="search" name="" id="searchContacts"
+                    placeholder="Enter Name or Email" />
+                  <img id="closeSearchContact" src="img/cross_icon_blue.png" alt="">
+                  <span>|</span>
+                  <img id="addContactBtn" src="img/checked_blue.png" alt="">
+                </div>
+                <div class="outputContact"></div>
+              </div>
+            </div>
+
+            <div class="board-task-detail-person-list blueScrollbar"></div>
+
+
+          </div>
+        </div>
+        <div>
+          <img class="bord-task-edit-button" src="img/edit_button_taksOpen.png">
+          <div class=" d-none edit-Buttons">
+            <span id="abortBtn" class="shadow-black">abort <img src="img/cross_icon.png"></span>
+            <span id="saveEditBtn" class="shadow-black">Save Task <img src="img/checked_icon_white.png"></span>
+          </div>
+        </div>
+        <div class="confirm-textbox dflex-center d-none">
+          <span>Changes saved succesfully...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="board-overlay"></div>
+
+  </main>
+  <script src="classes/dynamicObj.class.js"></script>
+  <script src="classes/task_deatails.class.js"></script>
+  <script src="classes/draganddrop.class.js"></script>
+  <script src="js/loadTemplates.js"></script>
+  <script src="js/mini_backend.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
