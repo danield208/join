@@ -1,4 +1,4 @@
-setURL("https://join.danieldoerbaum.de/smallest_backend");
+setURL("https://join.danieldoerbaum.de/join_backend");
 let userDates = [];
 
 let LoginBtn, file, Username, Usersurname, Usermail, Userpassword, localUserDates;

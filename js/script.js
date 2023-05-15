@@ -1,4 +1,4 @@
-setURL("https://join.danieldoerbaum.de/smallest_backend");
+setURL("https://join.danieldoerbaum.de/join_backend");
 let Tasks = [],
 	navItems = [],
 	contactList = [];
